@@ -45,6 +45,5 @@ def handle_message(client: Client, message: types.Message):
     else:
         client.send_message(chat_id, "Please provide a valid URL.")
 
-# Start client
-app_user.start()
+
 app.run()
