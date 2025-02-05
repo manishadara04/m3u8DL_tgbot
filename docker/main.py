@@ -18,12 +18,12 @@ AUTHORIZED_USERS = set(os.environ.get("AUTHORIZED_USERS", "6428531614").split())
 
 app_user.start()
 
-@app.on_message(filters.command(["start"]))
+@app_user.on_message(filters.command(["start"]))
 def start_handler(client: Client, message: types.Message):
     logging.info("Welcome to m3u8DL bot!")
     client.send_message(message.chat.id, "Welcome to m3u8DL bot!")
 
-@app.on_message(filters.incoming & (filters.text | filters.document))
+@app_user.on_message(filters.incoming & (filters.text | filters.document))
 def handle_message(client: Client, message: types.Message):
     chat_id = message.from_user.id
     client.send_chat_action(chat_id, enums.ChatAction.TYPING)
