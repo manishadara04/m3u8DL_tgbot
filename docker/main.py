@@ -10,7 +10,7 @@ api_hash = os.environ.get("b84d7d4dfa33904d36b85e1ead16bd63")  # Replace with yo
 bot_token = os.environ.get("8038725964:AAEkw01YH9JJ_soMDKAyqNSQz9q3JhX_yt0")  # Replace with your actual bot_token
 
 app_user = Client("app_user")
-app = Client("ytdl-main", api_id=api_id, api_hash=api_hash, bot_token=bot_token)
+app = Client("ytdl-main", api_id=27536109, api_hash=b84d7d4dfa33904d36b85e1ead16bd63, bot_token=8038725964:AAEkw01YH9JJ_soMDKAyqNSQz9q3JhX_yt0)
 AUTHORIZED_USERS = set(os.environ.get("AUTHORIZED_USERS", "6428531614").split())
 
 @app.on_message(filters.command(["start"]))
