@@ -4,11 +4,11 @@ services:
     container_name: m3u8dl-bot
     image: povoma4617/m3u8dl-bot:latest
     environment:
-      - APP_ID=<>
-      - APP_HASH=<>
-      - TOKEN=<>
-      - PREMIUM=False
-      - AUTHORIZED_USERS=<>
+      - APP_ID=<27536109>
+      - APP_HASH=<b84d7d4dfa33904d36b85e1ead16bd63>
+      - TOKEN=<8038725964:AAEkw01YH9JJ_soMDKAyqNSQz9q3JhX_yt0>
+      - PREMIUM=True
+      - AUTHORIZED_USERS=<6428531614>
     volumes: # if premium,set it
       - /path/to/app_user.session:/app/app_user.session
       - /path/to/ytdl-main.session:/app/ytdl-main.session
