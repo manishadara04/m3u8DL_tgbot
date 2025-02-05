@@ -44,6 +44,3 @@ def handle_message(client: Client, message: types.Message):
         client.send_message(chat_id, "Please provide a valid URL.")
 
 
-if __name__ == "__main__":
-    with app_user:
-        app_user.run()
