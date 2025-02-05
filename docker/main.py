@@ -5,25 +5,16 @@ from pyrogram import Client, filters, types, enums
 from downloader import download_and_upload_video
 from flask import Flask
 
-app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return "Bot is running!"
-
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Render assigns PORT dynamically
-    app.run(host="0.0.0.0", port=port)
-  
 # Initialize the Pyrogram client
 api_id = os.environ.get("27536109")  # Replace with your actual api_id
 api_hash = os.environ.get("b84d7d4dfa33904d36b85e1ead16bd63")  # Replace with your actual api_hash
 bot_token = os.environ.get("8038725964:AAEkw01YH9JJ_soMDKAyqNSQz9q3JhX_yt0")  # Replace with your actual bot_token
 
 app_user = Client("ytdl-main", 
-                  api_id=27536109, 
-                  api_hash="b84d7d4dfa33904d36b85e1ead16bd63", 
-                  bot_token="8038725964:AAEkw01YH9JJ_soMDKAyqNSQz9q3JhX_yt0")
+                  api_id=api_id, 
+                  api_hash=api_hash, 
+                  bot_token=bot_token
+              )
 
 AUTHORIZED_USERS = set(os.environ.get("AUTHORIZED_USERS", "6428531614").split())
 
@@ -54,4 +45,15 @@ def handle_message(client: Client, message: types.Message):
     else:
         client.send_message(chat_id, "Please provide a valid URL.")
 
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))  # Render assigns PORT dynamically
+    app.run(host="0.0.0.0", port=port)
+  
 
