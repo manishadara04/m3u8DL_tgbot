@@ -12,7 +12,7 @@ def home():
     return "Bot is running!"
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Default to 5000 if PORT is not set
+    port = int(os.environ.get("PORT", 8080))  # Render assigns PORT dynamically
     app.run(host="0.0.0.0", port=port)
   
 # Initialize the Pyrogram client
