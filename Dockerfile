@@ -23,6 +23,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/cache/apt/archives/*
     
+# Expose the port for Gunicorn (Render will assign this port)
 EXPOSE 8080
 
-CMD CMD gunicorn -w 4 -b 0.0.0.0:8080 main:app & python3 main.py
+# Use Gunicorn to run the app, this should be the command
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT", "main:app"]
