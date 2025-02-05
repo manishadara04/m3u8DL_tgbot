@@ -3,7 +3,18 @@ import logging
 import pathlib
 from pyrogram import Client, filters, types, enums
 from downloader import download_and_upload_video
+from flask import Flask
 
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Bot is running!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080)  # Default to 5000 if PORT is not set
+    app.run(host="0.0.0.0", port=port)
+  
 # Initialize the Pyrogram client
 api_id = os.environ.get("27536109")  # Replace with your actual api_id
 api_hash = os.environ.get("b84d7d4dfa33904d36b85e1ead16bd63")  # Replace with your actual api_hash
