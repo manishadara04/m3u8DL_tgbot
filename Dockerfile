@@ -25,4 +25,4 @@ RUN apt-get update && \
     
 EXPOSE 8080
 
-CMD gunicorn main:app & python3 main.py
+CMD CMD gunicorn -w 4 -b 0.0.0.0:8080 main:app & python3 main.py
