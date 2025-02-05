@@ -16,8 +16,6 @@ app_user = Client("ytdl-main",
 
 AUTHORIZED_USERS = set(os.environ.get("AUTHORIZED_USERS", "6428531614").split())
 
-app_user.start()
-
 @app_user.on_message(filters.command(["start"]))
 def start_handler(client: Client, message: types.Message):
     logging.info("Welcome to m3u8DL bot!")
@@ -46,4 +44,6 @@ def handle_message(client: Client, message: types.Message):
         client.send_message(chat_id, "Please provide a valid URL.")
 
 
-app_user.run()
+if __name__ == "__main__":
+    with app_user:
+        app_user.run()
