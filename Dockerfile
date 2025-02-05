@@ -22,6 +22,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/* && \
     apt-get clean && \
     rm -rf /var/cache/apt/archives/*
+    
+EXPOSE 8080
 
-# 在容器中运行你的Python脚本
-CMD ["python3", "main.py"]
+CMD gunicorn -w 4 -b 0.0.0.0:$PORT main:app
