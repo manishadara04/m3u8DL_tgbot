@@ -27,4 +27,4 @@ RUN apt-get update && \
 EXPOSE 8080
 
 # Use Gunicorn to run the app, this should be the command
-CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0:$PORT", "main:app"]
+CMD ["gunicorn", "-w", "4", "-b", "0.0.0.0", "main:app"]
